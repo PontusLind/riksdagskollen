@@ -2,6 +2,10 @@
   <div v-if="member">
     <h2>{{ member.tilltalsnamn }} {{ member.efternamn }}</h2>
     <img :src="member.bild_url_192" alt="Member Image" />
+    <div>
+      <button @click="handleClick('cheer')">Cheer</button>
+      <button @click="handleClick('buue')">Buue</button>
+    </div>
     <p>Born: {{ member.fodd_ar }}</p>
     <p>Party: {{ member.parti }}</p>
     <p>Status: {{ member.status }}</p>
@@ -30,9 +34,11 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watchEffect } from 'vue';
+import { ref, onMounted, inject } from 'vue';
 import { useRoute } from 'vue-router';
 import axios from 'axios';
+
+const playSound = inject("playSound");
 
 const props = defineProps({
   member: {
@@ -67,6 +73,13 @@ onMounted(async () => {
     }
   }
 });
+
+function handleClick(action) {
+  if (playSound) {
+    playSound(action);
+  }
+}
+
 </script>
 
 <style scoped>

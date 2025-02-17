@@ -1,5 +1,6 @@
 <script setup>
 import { RouterView } from 'vue-router';
+import SoundProvider from "./providers/SoundProvider.vue";
 </script>
 
 <template>
@@ -16,7 +17,9 @@ import { RouterView } from 'vue-router';
     </li>
   </ul>
 </nav>
-  <RouterView />
+  <SoundProvider>
+    <RouterView />
+  </SoundProvider>
 </template>
 
 <style scoped>
