@@ -23,7 +23,7 @@ let membersList = ref([]);
 let search = ref('');
 let mounted = ref(false);
 const url = 'https://data.riksdagen.se/personlista/?iid=&fnamn=&enamn=&f_ar=&kn=&parti=&valkrets=&rdlstatus=&org=&utformat=json&sort=sorteringsnamn&sortorder=asc';
-const emit = defineEmits('member');
+const emit = defineEmits(['member']);
 
 onMounted(async () => {
   try {
@@ -58,8 +58,6 @@ function onClick(id) {
   if (member) {
         emit('member', member);
       }
-  // console.log(id);
-  // Redirect to member page with intressent_id
 }
 </script>
 
