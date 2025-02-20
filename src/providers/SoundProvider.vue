@@ -3,8 +3,8 @@
 </template>
 <script setup>
 import { provide } from "vue";
-import cheer from "./cheer.wav";
-import buue from "./buue.wav";
+import cheer from "../assets/cheer.wav";
+import buue from "../assets/buue.wav";
 
 function playSound(action) {
     console.log(action);
